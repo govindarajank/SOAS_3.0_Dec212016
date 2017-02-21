@@ -4887,11 +4887,11 @@ public class OleDeliverRequestDocumentHelperServiceImpl {
                             }
 
                         }
+                    }else if(oleDeliverRequestBo.getRequestTypeId().equals("2")){
+                        oleDeliverRequestBo.setNoticeType(noticeInfo.getNoticeType());
                     }
                 }
 
-            }else{
-                oleDeliverRequestBo.setNoticeType(noticeInfo.getNoticeType());
             }
 return oleLoanDocument;
 
