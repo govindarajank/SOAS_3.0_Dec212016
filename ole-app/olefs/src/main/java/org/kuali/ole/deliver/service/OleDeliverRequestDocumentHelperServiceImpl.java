@@ -4890,6 +4890,8 @@ public class OleDeliverRequestDocumentHelperServiceImpl {
                     }
                 }
 
+            }else{
+                oleDeliverRequestBo.setNoticeType(noticeInfo.getNoticeType());
             }
 return oleLoanDocument;
 
