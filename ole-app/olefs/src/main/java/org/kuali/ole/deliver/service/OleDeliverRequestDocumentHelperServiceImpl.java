@@ -4889,6 +4889,8 @@ public class OleDeliverRequestDocumentHelperServiceImpl {
                         }
                     }else if(oleDeliverRequestBo.getRequestTypeId().equals("2")){
                         oleDeliverRequestBo.setNoticeType(noticeInfo.getNoticeType());
+                        oleDeliverRequestBo.setRecallDueDate(new Timestamp(oleLoanDocument.getLoanDueDate().getTime()));
+                        oleDeliverRequestBo.setNewDueDate(new java.sql.Date(oleLoanDocument.getLoanDueDate().getTime()));
                     }
                 }
 

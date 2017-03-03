@@ -472,7 +472,7 @@ public class RdbmsItemDocumentManager extends RdbmsHoldingsDocumentManager imple
         if (itemRecord.getEffectiveDate() != null) {
             //Format formatter = new SimpleDateFormat("yyyy-MM-dd");
             //String effectiveDate = formatter.format(itemRecord.getEffectiveDate().toString());
-            SimpleDateFormat format1 = new SimpleDateFormat(CoreApiServiceLocator.getKualiConfigurationService().getPropertyValueAsString("info.DateFormat")+" HH:mm:ss");
+            SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             Date effectiveDate = null;
             try {
@@ -531,12 +531,12 @@ public class RdbmsItemDocumentManager extends RdbmsHoldingsDocumentManager imple
                 LOG.error(" getGregorianCalendar", e);
             }*/
             //try {
-            SimpleDateFormat format1 = new SimpleDateFormat(CoreApiServiceLocator.getKualiConfigurationService().getPropertyValueAsString("info.DateFormat")+" HH:mm:ss");
+            SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String DATE_FORMAT_HH_MM_SS_REGX = "^(1[0-2]|0[1-9])/(3[0|1]|[1|2][0-9]|0[1-9])/[0-9]{4}(\\s)((([1|0][0-9])|([2][0-4]))):[0-5][0-9]:[0-5][0-9]$";
             Date dueDateTime = null;
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ssa");
-            DateFormat df1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm:ssa");
+            DateFormat df1 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             DateFormat displayLoanTime = new SimpleDateFormat(CoreApiServiceLocator.getKualiConfigurationService().getPropertyValueAsString("info.DateFormat")+" hh:mma");
             try {
                 dueDateTime = format2.parse(itemRecord.getDueDateTime().toString());
@@ -1261,7 +1261,7 @@ public class RdbmsItemDocumentManager extends RdbmsHoldingsDocumentManager imple
         String DATE_FORMAT_AM_PM_REGX = "^(1[0-2]|0[1-9])/(3[0|1]|[1|2][0-9]|0[1-9])/[0-9]{4}(\\s)(00|1[012]|0[1-9]):[0-5][0-9]:[0-5][0-9]?(?i)(am|pm)";
         String DATE_FORMAT_HH_MM_SS_REGX = "^(1[0-2]|0[1-9])/(3[0|1]|[1|2][0-9]|0[1-9])/[0-9]{4}(\\s)((([1|0][0-9])|([2][0-4]))):[0-5][0-9]:[0-5][0-9]$";
         if (StringUtils.isNotBlank(dateString) && dateString.matches(DATE_FORMAT_AM_PM_REGX)) {
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ssa");
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm:ssa");
             try {
                 if (!"".equals(dateString) && dateString != null) {
                     dueDateTime1 = new Timestamp(df.parse(dateString).getTime());
